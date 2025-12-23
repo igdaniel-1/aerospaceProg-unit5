@@ -17,6 +17,13 @@ name_input.grid(row=0, column=1, padx=10, pady=5)
 age_input = tk.Entry(frame)
 age_input.grid(row=1, column=1, padx=10, pady=5)
 
+# submit input function
+def print_info():
+    input_values_label.config(text=f"Name: {name_input.get()}, Age: {age_input.get()}")
+
+# submit button for input
+tk.Button(frame, text="Submit", command=print_info).grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+
 # Creating Dynamic Labels
 input_values_label = tk.Label(frame, text="")
 input_values_label.grid(row=3, column=0, columnspan=2)
