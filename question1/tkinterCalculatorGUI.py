@@ -1,33 +1,43 @@
+# unit 5 question 1 part 2
+# GUI calculator
+
+
+# Objectives
+# Create a Tkinter window display using the tkinter library
+# Add text onto the window display stating "Addition Calculator"
+# Add two inputs onto the window and store the inputs into variables number1 and number2 respectively
+# Create a button titled "Add"
+# Create a Label on the window that shows the sum of number1 and number2 when the Add button is clicked
+# Display the window
+
+
 import tkinter as tk
 
 # set up the framing
 frame = tk.Tk()
-frame.title("Input Form")
-label = tk.Label(text="hiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
+frame.title("Addition Calculator")
 
-# Organizes the label on the window 
-# label.pack()
+# input labels
+tk.Label(frame, text="Number1:").grid(row=0, column=0, padx=10, pady=5)
+tk.Label(frame, text="Number2:").grid(row=1, column=0, padx=10, pady=5)
 
-# sticky="e" means that the widget will stick to the east (right) edge of its grid cell
-tk.Label(frame, text="Name:").grid(row=0, column=0, padx=10, pady=5, sticky="e")
-tk.Label(frame, text="Age:").grid(row=1, column=0, padx=10, pady=5, sticky="e")
+# inputs 
+number1 = tk.Entry(frame)
+number1.grid(row=0, column=1, padx=10, pady=5)
+number2 = tk.Entry(frame)
+number2.grid(row=1, column=1, padx=10, pady=5)
 
-name_input = tk.Entry(frame)
-name_input.grid(row=0, column=1, padx=10, pady=5)
-age_input = tk.Entry(frame)
-age_input.grid(row=1, column=1, padx=10, pady=5)
+# output label, under the add button
+output_label = tk.Label(frame, text="")
+output_label.grid(row=3, column=0, columnspan=2,)
 
-# submit input function
-def print_info():
-    input_values_label.config(text=f"Name: {name_input.get()}, Age: {age_input.get()}")
+# calculate
+def addCalculator():
+    total = int(number1.get())+int(number2.get())
+    output_label.config(text=f"{total}")
 
-# submit button for input
-tk.Button(frame, text="Submit", command=print_info).grid(row=2, column=0, columnspan=2, padx=10, pady=10)
+# addition button
+tk.Button(frame, text="Add", command=addCalculator).grid(row=2, column=0, columnspan=2, padx=10, pady=5)
 
-# Creating Dynamic Labels
-input_values_label = tk.Label(frame, text="")
-input_values_label.grid(row=3, column=0, columnspan=2)
 
-# this command 'runs' the GUI
-# Creates the main loop of the application which continuously listens for user input
 frame.mainloop()
