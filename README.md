@@ -1,13 +1,14 @@
 # Installing Dependencies
 
-These files have dependencies including: tkinter, matplotlib.
+These files have dependencies including: tkinter, matplotlib, scipy.
 
 # Tkinter install
 
 ```brew install python-tk```
 
-# Matplotlib install
-I ran this install in a virtual environment.
+# Other installs
+For matplotlib, scipy, etc.
+I ran these installs in a virtual environment.
 
 1. Set up the virtual environment. Within your project directory, open terminal and enter:
 ```python3 -m venv <your_project_name>  ```
