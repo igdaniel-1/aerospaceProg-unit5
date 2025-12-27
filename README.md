@@ -1,6 +1,6 @@
 # Installing Dependencies
 
-These files have dependencies including: tkinter, matplotlib, scipy.
+These files have dependencies including: tkinter, matplotlib, scipy, sv_ttk.
 
 # Tkinter install
 
