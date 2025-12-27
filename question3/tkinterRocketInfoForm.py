@@ -22,19 +22,23 @@ style = ttk.Style()
 style.configure('Padding.TLabel', padding=(0,10,0,5))
 
 # name
-tk.Label(frame, text="Rocket Name:").grid(row=0, column=0, padx=10, pady=5, sticky="e")
+# note the use of 'ttk' when creating the styled labels
+name_label = ttk.Label(frame, text="Rocket Name:", style='Padding.TLabel')
+name_label.pack()
 name_input = tk.Entry(frame)
-name_input.grid(row=0, column=1, padx=10, pady=5, sticky="e")
+name_input.pack()
 
 # destination
-tk.Label(frame, text="Destination:").grid(row=1, column=0, padx=10, pady=5, sticky="e")
+destination_label = ttk.Label(frame, text="Destination:")
+destination_label.pack()
 destination_input = tk.Entry(frame)
-destination_input.grid(row=1, column=1, padx=10, pady=5, sticky="e")
+destination_input.pack()
 
-# mass
-tk.Label(frame, text="Rocket Mass:").grid(row=2, column=0, padx=10, pady=5, sticky="e")
+# # mass
+mass_label = ttk.Label(frame, text="Rocket Mass:")
+mass_label.pack()
 mass_input = tk.Entry(frame)
-mass_input.grid(row=2, column=1, padx=10, pady=5, sticky="e")
+mass_input.pack()
 
 # output function
 def blastOff():
@@ -42,15 +46,16 @@ def blastOff():
     destination = destination_input.get()
     mass = mass_input.get()
 
-    result = f"Name: {name} \nDestination: {destination} \nMass: {mass}"
+    result = f"{name} is heading to {destination} and weighs {mass} kg!"
     output_label.config(text=result)
 
 
-tk.Button(frame, text="Blast Off!", command=blastOff).grid(row=3, column=0, padx=10, pady=5, sticky="e")
+button = tk.Button(frame, text="Blast Off!", command=blastOff)
+button.pack()
 
 # output
 output_label = tk.Label(frame, text="")
-output_label.grid(row=4, column=0, padx=10, pady=5, sticky="e")
+output_label.pack()
 
 
 
