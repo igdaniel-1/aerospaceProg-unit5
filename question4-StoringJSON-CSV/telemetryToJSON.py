@@ -55,6 +55,18 @@ with open('question4-StoringJSON-CSV/telemetry.json', 'r') as file:
     storedTelemetry = json.load(file)
 
 # output
+aircraftCount = 0
 print("\n- - - TELEMETRY - - - \n")
 for row in storedTelemetry:
-    print(row,'\n')
+    aircraftCount+=1
+    print('TELEMETRY FOR CRAFT #',aircraftCount)
+    print("timestamp:",row['timestamp'])
+    print("temperature:",row['temperature'])
+    print("pressure:",row['pressure'])
+    print("velocity:",row['velocity'])
+    print("altitude:",row['altitude'])
+    print("power_level:",row['power_level'])
+    print("orientation:")
+    print("\t |___ roll:",row['orientation']['roll'])
+    print("\t |___ pitch:",row['orientation']['pitch'])
+    print("\t |___ yaw:",row['orientation']['yaw'])
