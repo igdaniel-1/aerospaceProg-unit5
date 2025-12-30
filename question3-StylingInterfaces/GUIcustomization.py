@@ -41,6 +41,8 @@ email_input = tk.Entry(root)
 email_input.grid(row=2, column=1, padx=10, pady=5, sticky="e")
 
 def submit_form():
+    # the tk.Entry() item has a get property 
+    # which retrieves present text input
     fname = fname_input.get()
     lname = lname_input.get()
     email = email_input.get()
