@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib.figure import Figure 
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,  
 NavigationToolbar2Tk) 
+import csv
 
 frame = tk.Tk()
 frame.title("Sin Plotter")
@@ -21,6 +22,7 @@ amplitudeSlider.pack()
 matplotfigure = Figure(figsize = (8,6), dpi=100)
 canvas = FigureCanvasTkAgg(matplotfigure, master=frame)
 
+# plot data from slider input
 def generatePlot(canvas, figure):
     if figure:
         figure.clear()
@@ -36,6 +38,21 @@ def generatePlot(canvas, figure):
 
 plottingButton = tk.Button(frame, text="Generate Plot", command=lambda:generatePlot(canvas, matplotfigure))
 plottingButton.pack()
+
+# download x,y values as see in grpah and adjusted from the slider
+def downloadGraph():
+    amplitude = amplitudeSlider.get()
+    x = np.linspace(0,10,100)
+    with open('question5-interactiveApp/graphData.csv','w',newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=['x','y'])
+        writer.writeheader()
+
+        for x_value in range(len(x)):
+            y = amplitude * np.sin(x[x_value])
+            writer.writerow({'x':x[x_value], 'y':y})
+
+downloadButton = tk.Button(frame, text="Download Data (.csv)", command=downloadGraph)
+downloadButton.pack()
 
 canvas.get_tk_widget().pack()
 generatePlot(canvas, matplotfigure)
