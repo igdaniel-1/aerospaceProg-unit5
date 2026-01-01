@@ -36,19 +36,19 @@ def generatePlot(canvas, figure):
     
     slope = slopeInput.get()
     resolution = resolutionInput.get()
-    print('resolution:',resolution)
 
     if resolution:
         resolution = int(resolution)
+        slope = int(slope)
+        print('resolution:',resolution)
+        print('slope::::',slope)
 
-        x = np.linspace(0, 10, resolution)
+        # x = np.linspace(0, 10, resolution)
+        x = [x for x in range(resolution)]
         y = [0]*resolution
 
         for x_value in range(len(x)):
             y[x_value] = slope * x_value
-        
-        print('\nx',x)
-        print("y",y)
         
         subplot = figure.add_subplot()
         subplot.plot(x, y)
@@ -59,20 +59,24 @@ def generatePlot(canvas, figure):
 plottingButton = tk.Button(frame, text="Generate Plot", command=lambda:generatePlot(canvas, matplotfigure))
 plottingButton.pack()
 
-# # download x,y values as see in grpah and adjusted from the slider
-# def downloadGraph():
-#     # amplitude = amplitudeSlider.get()
-#     x = np.linspace(0,10,100)
-#     with open('question5-interactiveApp/slopeData.csv','w',newline='') as file:
-#         writer = csv.DictWriter(file, fieldnames=['x','y'])
-#         writer.writeheader()
+# download x,y values as see in grpah and adjusted from the slider
+def downloadGraph():
+    slope = slopeInput.get()
+    resolution = resolutionInput.get()
 
-#         for x_value in range(len(x)):
-#             y = amplitude * np.sin(x[x_value])
-#             writer.writerow({'x':x[x_value], 'y':y})
+    if resolution:
+        resolution = int(resolution)
+        x = np.linspace(0,10,resolution)
+        y = [0]*resolution
+        with open('question5-interactiveApp/slopeData.csv','w',newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=['x','y'])
+            writer.writeheader()
+            for x_value in range(len(x)):
+                y[x_value] = slope * int(x_value)
+                writer.writerow({'x':x[x_value], 'y':y[x_value]})
 
-# downloadButton = tk.Button(frame, text="Download Data (.csv)", command=downloadGraph)
-# downloadButton.pack()
+downloadButton = tk.Button(frame, text="Download Data (.csv)", command=downloadGraph)
+downloadButton.pack()
 
 canvas.get_tk_widget().pack()
 generatePlot(canvas, matplotfigure)
