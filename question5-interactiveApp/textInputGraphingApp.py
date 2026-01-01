@@ -40,10 +40,12 @@ def generatePlot(canvas, figure):
     if resolution:
         resolution = int(resolution)
         slope = int(slope)
-        print('resolution:',resolution)
-        print('slope::::',slope)
 
-        # x = np.linspace(0, 10, resolution)
+        # THIS IS WHERE THE BUG WAS WITH THE Y-VALS
+        # x = np.linspace(0, 10, resolution) 
+        # linspace uses an even distribution of floats between 0 and 10, 
+        # these values were being called as the x-vals, throwing off my calcs
+        # issue resolved by making an array of x values, shown below
         x = [x for x in range(resolution)]
         y = [0]*resolution
 
@@ -59,21 +61,22 @@ def generatePlot(canvas, figure):
 plottingButton = tk.Button(frame, text="Generate Plot", command=lambda:generatePlot(canvas, matplotfigure))
 plottingButton.pack()
 
-# download x,y values as see in grpah and adjusted from the slider
+# download x,y values
 def downloadGraph():
     slope = slopeInput.get()
     resolution = resolutionInput.get()
 
     if resolution:
         resolution = int(resolution)
-        x = np.linspace(0,10,resolution)
+        slope = int(slope)
+        x = [x for x in range(resolution)]
         y = [0]*resolution
         with open('question5-interactiveApp/slopeData.csv','w',newline='') as file:
             writer = csv.DictWriter(file, fieldnames=['x','y'])
             writer.writeheader()
             for x_value in range(len(x)):
-                y[x_value] = slope * int(x_value)
-                writer.writerow({'x':x[x_value], 'y':y[x_value]})
+                y_value = slope * int(x_value)
+                writer.writerow({'x':x[x_value], 'y':y_value})
 
 downloadButton = tk.Button(frame, text="Download Data (.csv)", command=downloadGraph)
 downloadButton.pack()
