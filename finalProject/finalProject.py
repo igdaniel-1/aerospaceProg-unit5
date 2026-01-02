@@ -53,6 +53,49 @@ semi_major_axis_label.pack()
 semi_major_axis_slider = tk.Scale(right_frame, from_=2000, to=5000, tickinterval=10000, orient=tk.HORIZONTAL, length=400)
 semi_major_axis_slider.pack()
 
+eccentricity_label = ttk.Label(right_frame, text="Eccentricity: ", style='Margin.TLabel')
+eccentricity_label.pack()
+eccentricity_slider = tk.Scale(right_frame, from_=0, to=1, resolution=0.01, tickinterval=0.1, orient=tk.HORIZONTAL, length=400)
+eccentricity_slider.pack()
+
+inclination_label = ttk.Label(right_frame, text="Inclination: ", style='Margin.TLabel')
+inclination_label.pack()
+inclination_slider = tk.Scale(right_frame, from_=0, to=360, tickinterval=40, orient=tk.HORIZONTAL, length=400)
+inclination_slider.pack()
+
+raan_label = ttk.Label(right_frame, text="Right Ascension of Ascending Node: ", style='Margin.TLabel')
+raan_label.pack()
+raan_slider = tk.Scale(right_frame, from_=0, to=360, tickinterval=40, orient=tk.HORIZONTAL, length=400)
+raan_slider.pack()
+
+perigee_label = ttk.Label(right_frame, text="Argument of Perigee: ", style='Margin.TLabel')
+perigee_label.pack()
+perigee_slider = tk.Scale(right_frame, from_=1, to=360, tickinterval=40, orient=tk.HORIZONTAL, length=400)
+perigee_slider.pack()
+
+anomaly_label = ttk.Label(right_frame, text="Mean Anomaly: ", style='Margin.TLabel')
+anomaly_label.pack()
+anomaly_slider = tk.Scale(right_frame, from_=1, to=360, tickinterval=40, orient=tk.HORIZONTAL, length=400)
+anomaly_slider.pack()
+
+
+# Takes in six Keplarian Elements as parameters and sets the value to the sliders in the GUI
+def display_sliders(a, e, i, o, w, v):
+    semi_major_axis_slider.set(a)
+    eccentricity_slider.set(e)
+    inclination_slider.set(i)
+    raan_slider.set(o)
+    perigee_slider.set(w)
+    anomaly_slider.set(v)
+# Default:
+# Semi-Major Axis: 10000
+# Eccentricity: 0.1
+# Inclination: 90
+# RAAN: 40
+# Argument of Periapsis: 1
+# Mean Anamoly: 1
+display_sliders(10000, 0.1, 90, 40, 1, 1)
+
 
 
 
