@@ -96,7 +96,39 @@ def display_sliders(a, e, i, o, w, v):
 # Mean Anamoly: 1
 display_sliders(10000, 0.1, 90, 40, 1, 1)
 
+def trace_altitude_graph(TLE_one, TLE_two):
+    satellite = Satrec.twoline2rv(TLE_one, TLE_two)
 
+    start_time = 0
+    end_time = 60*60*24 #one day
+    step = 60 #per minute
+    full_times = np.arange(start_time, end_time, step)
+    # full_times = np.linspace(start_time, end_time, step)
+
+    # calculate the altitude at each time step
+    altitudes = []
+    for moment in full_times:
+        jd, fr = jday(2024, 4, 1, 0, 0, moment)
+        e,r,v = satellite.sgp4(jd,fr)
+        # r represents the position vector of the satellite where:
+        # r = [x, y, z]
+        # represents the altitude of the satellite above Earth's surface
+        altitude = (r[0]**2 + r[1]**2 + r[2]**2)**0.5 - 6378.135  # Earth's mean radius in kilometers
+        altitudes.append(altitude)
+
+    # create mpl graph
+    fig = Figure(figsize=(6,3), dpi=100)
+    canvas = FigureCanvasTkAgg(fig, master=left_frame)
+    canvas.get_tk_widget().pack(pady=15)
+    # graph the altitudes at each time step
+    plot = fig.add_subplot()
+    plot.plot(full_times, altitudes)
+    plot.grid(True)
+    canvas.draw()
+# Default TLE:
+# 1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990
+# 2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.4888108230711
+trace_altitude_graph("1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990", "2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.48881082307117")
 
 
 mainFrame.mainloop()
