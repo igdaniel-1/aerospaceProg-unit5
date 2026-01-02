@@ -1,13 +1,13 @@
 # Installing Dependencies
 
-These files have dependencies including: tkinter, matplotlib, scipy, sv_ttk.
+These files have dependencies including: tkinter, matplotlib, scipy, sv_ttk, PyAstronomy, sgp4.
 
 # Tkinter install
 
 ```brew install python-tk```
 
 # Other installs
-For matplotlib, scipy, etc.
+For matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4.
 I ran these installs in a virtual environment.
 
 1. Set up the virtual environment. Within your project directory, open terminal and enter:
