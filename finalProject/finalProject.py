@@ -16,6 +16,7 @@ from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,  
 NavigationToolbar2Tk) 
 from PyAstronomy import pyasl
+# from PyAstronomy.modelSuite import KeplerEllipseModel
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from sgp4.api import Satrec
@@ -129,6 +130,53 @@ def trace_altitude_graph(TLE_one, TLE_two):
 # 1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990
 # 2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.4888108230711
 trace_altitude_graph("1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990", "2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.48881082307117")
+
+
+# create lower left 3D plot
+fig2 = Figure(figsize = (6, 3), dpi = 100) 
+canvas2 = FigureCanvasTkAgg(fig2, master = left_frame) 
+
+# This method takes the six Keplarian Elements and plots them in a 3D graph
+def visualize_3d_orbit(a, p, e, o, i, w, figure):
+    orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
+    
+    # kem = KeplerEllipseModel(relevantAxes="xz")
+    # kem = KeplerEllipseModel()
+    # kem["a"] = a
+    # kem["per"] = p
+    # kem["e"] = e
+    # # kem["tau"] = TAU
+    # kem["Omega"] = o
+    # kem["w"] = w
+    # kem["i"] = i
+
+
+    # kem["tau"] = 0.745
+    
+    timespace = np.linspace(0, 4, 300)
+    pos = orbit.xyzPos(timespace)
+
+    # model = kem.evaluate(timespace)
+
+    # print("Used " + str(len(timespace)) + " time points")
+    # print("-> length of model: ", len(model))
+
+    # Clear the figure if it already exists (allows us to refresh / redraw updated plots)
+    # if fig_vis:
+    #     fig_vis.clear()
+    
+    # canvas2.get_tk_widget().pack(pady=15)
+    # plot2 = fig_vis.add_subplot(111, projection='3d')
+
+    # Plots the Earth, trajectory path, and periapsis point of trajectory
+    # plot2.plot(0, 0, 'bo', markersize=9, label="Earth")
+    # plot2.plot(pos[::, 1], pos[::, 0], 'k-', label="Satellite Trajectory")
+    # plot2.plot(pos[0, 1], pos[0, 0], 'g*', label="Periapsis")
+
+    # Draws the plot onto the canvas
+    # canvas2.draw() 
+
+print(visualize_3d_orbit(1.0, 1.0, 0.5, 0.0, 30.0, 0.0, fig2))
 
 
 mainFrame.mainloop()

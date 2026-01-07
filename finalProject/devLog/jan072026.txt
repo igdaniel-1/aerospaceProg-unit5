@@ -1,0 +1,16 @@
+DATE:
+01072026
+
+ISSUES:
+1. keplerEllipse Object is not accesible through 'from PyAstronomy import pyasl.'
+ERROR: "AttributeError: module 'PyAstronomy.pyasl' has no attribute 'KeplerEllipse.'"
+2. Attempted another library, 'from PyAstronomy.modelSuite import KeplerEllipseModel.'
+ERROR: KeplerEllipseModel calls for KeplerEllipse Object which DNE.
+
+ATTEMPTS:
+1. Attempted to mod the 'myVirtualEnv/lib/python3.14/site-packages/PyAstronomy/modelSuite/keplerEllipseModel.py' file.
+I tried to remove the call the KeplerEllipse unfruitfully.
+Within the 'evaluate' function, all the fields were switched from self.ke.n to self.n.
+This solution didn't cover the need to call the pyasl.KeplerEllipse.xyzPos() function later in the code.
+This xyzPos() function must be called or written in a different way to continue using this library.
+Or else I need to find another library to get Kepler data.
