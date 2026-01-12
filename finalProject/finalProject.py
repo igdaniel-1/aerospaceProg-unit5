@@ -8,7 +8,7 @@
 
 import tkinter as tk
 from tkinter import ttk
-import sv_ttk
+# import sv_ttk
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
@@ -30,7 +30,7 @@ mainFrame.geometry('1200x800')
 
 # styling
 # Set the tkinter theme to Sun Valley
-sv_ttk.set_theme('dark')
+# sv_ttk.set_theme('dark')
 # Set the matplotlib theme to dark_background
 plt.style.use('dark_background')
 # Create a tkinter Style instance
@@ -138,7 +138,7 @@ canvas2 = FigureCanvasTkAgg(fig2, master = left_frame)
 
 # This method takes the six Keplarian Elements and plots them in a 3D graph
 def visualize_3d_orbit(a, p, e, o, i, w, figure):
-    orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
+    # orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
     
     # kem = KeplerEllipseModel(relevantAxes="xz")
     # kem = KeplerEllipseModel()
@@ -154,7 +154,7 @@ def visualize_3d_orbit(a, p, e, o, i, w, figure):
     # kem["tau"] = 0.745
     
     timespace = np.linspace(0, 4, 300)
-    pos = orbit.xyzPos(timespace)
+    # pos = orbit.xyzPos(timespace)
 
     # model = kem.evaluate(timespace)
 

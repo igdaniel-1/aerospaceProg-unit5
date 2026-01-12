@@ -11,10 +11,13 @@ For matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4.
 I ran these installs in a virtual environment.
 
 1. Set up the virtual environment. Within your project directory, open terminal and enter:
-```python3 -m venv <your_project_name>  ```
+```python3 -m venv <pick_VM_name>  ```
 
 2. Activate the environment, telling your computer to "look there" for the files.
-```source <your_project_name>/bin/activate ```
+Mac Users:
+```source <pick_VM_name>/bin/activate ```
+Windows Users:
+```.\\<pick_VM_name>\Scripts\activate.bat```
 
 3. Install the dependency in the new virtual environment:
 ```pip3 install matplotlib```
@@ -26,3 +29,7 @@ I ran these installs in a virtual environment.
 ```deactivate```
 
 6. To restart the environment, repeat step 2 within your project directory
+
+## Windows Execution Notes
+When running files through the VM, enter the directory of the VM and run the following:
+```python ../<finalProjectFolder>/<finalProjectFile>.py```
