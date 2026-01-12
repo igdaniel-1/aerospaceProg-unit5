@@ -1,0 +1,23 @@
+DATE:
+01122026
+
+ISSUES:
+After setting up my new PC, I have to redo my installs for Windows. 
+ERROR: I'm running into issues with installing dependencies to the VM directly.
+The comand I run:
+"<pathToAeroFolder5>\myVirtualEnv> pip3 install PyAstronomy"
+The installs are coming through to local "\localcache\local-packages\python313\site-packages".
+Despite being called in the VM's directory, the install is global.
+
+
+ATTEMPTS:
+Set up new VM in aero5 directory.
+```python3 -m venv <pick_VM_name>  ```
+Activated the new VM.
+```.\\<pick_VM_name>\Scripts\activate.bat```
+Inside the new VM directory ran the installs.
+```pip3 install matplotlib```
+Executed the finalProject files.
+```python ../<ProjectFolder>/<ProjectFile>.py```
+Yet the installs were global. The VM's lib/site-packages folder does NOT contain the libraries I installed.
+Why are they not being installed within the VM's directory?
