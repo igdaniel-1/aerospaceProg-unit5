@@ -1,0 +1,16 @@
+DATE:
+01132026
+
+ISSUES:
+ERROR:'aerospaceProg-unit5\virtualEnv\Scripts\Activate.ps1 cannot be        
+loaded because running scripts is disabled on this system. 
+For more information, see about_Execution_Policies at
+https:/go.microsoft.com/fwlink/?LinkID=135170.'
+
+When running pip installs, I get the error: 
+'normal site-packages is not writeable', 
+instead writing locally to:
+'\local\packages\pythonsoftwarefoundation.python.3.13_qbz5n2kfra8p0\localcache\local-packages\python313\site-packages'
+
+
+ATTEMPTS:
