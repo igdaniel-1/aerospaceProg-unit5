@@ -11,7 +11,6 @@ Matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4 were installed in a virtual env
 
 2. Activate the environment, telling your computer to "look there" for the files.
 
-Mac Users:
 ```source <pick_VM_name>/bin/activate ```
 
 
@@ -24,8 +23,6 @@ Mac Users:
 ```pip3 list```
 
 5. When you're done, deactivate the virtual environment
-
-NOTE: THIS ISN'T WORKING FOR WINDOWS USERS RIGHT NOW.
 
 ```deactivate```
 
@@ -41,10 +38,11 @@ I handled Windows execution using Anaconda to create the virtual environment.
 1. Open Anaconda Prompt 
 2. In Anaconda Prompt, create a new development environment by running:
 
-```conda create --name <VMName> python=3.14```
+```conda create --name <VMName> python=3.9```
+current name: keplerVM
 
 3. In Anaconda Prompt, activate the new environment:
-```conda activate hello-env```
+```conda activate <VMName>```
 
 4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your <VMName>.
 
@@ -53,7 +51,7 @@ If the name of the environment does not appear, restart VS Code. It should displ
 To check if you're in the env, the cmdl should look like:
 ```(<VMName>) C:\Users\<YourName>>```
 
-5. For general installs, use cmdl:
+5. For general installs (e.g. PyAstronomy), use cmdl:
 ```pip install <library>```
 For conda installs:
 ```conda install --channel conda-forge <library1> <library2>```
