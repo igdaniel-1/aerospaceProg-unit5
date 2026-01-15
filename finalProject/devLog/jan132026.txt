@@ -14,3 +14,6 @@ instead writing locally to:
 
 
 ATTEMPTS:
+Tried copying PyAstronomy files from PyAstronomy/pyasl/asl/keplerOrbit.py directly into repo.
+This is awful for memory and I'm not uploading these to GitHub,
+I'm going to ask for help from some physicists and see if this library is deprecated or if I'm messing up the install.
