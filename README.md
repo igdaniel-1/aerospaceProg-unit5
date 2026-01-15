@@ -3,6 +3,8 @@ The files in this repository have dependencies including: tkinter, matplotlib, s
 
 Matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4 were installed in a virtual environment in the folowing manner.
 
+## Mac Install
+
 1. Set up the virtual environment. Within your project directory, open terminal and enter:
 
 ```python3 -m venv <pick_VM_name>  ```
@@ -12,8 +14,6 @@ Matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4 were installed in a virtual env
 Mac Users:
 ```source <pick_VM_name>/bin/activate ```
 
-Windows Users:
-```.\\<pick_VM_name>\Scripts\activate.bat```
 
 3. Install the dependency in the new virtual environment:
 
@@ -32,10 +32,32 @@ NOTE: THIS ISN'T WORKING FOR WINDOWS USERS RIGHT NOW.
 6. To restart the environment, repeat step 2 within your project directory
 
 ## Tkinter install
+This install was giving me issues with pip so I used brew for Mac installs. 
 
 ```brew install python-tk```
 
-## Windows Execution Notes
-When running files through the VM, enter the directory of the VM and use the following format:
+## Windows Install
+I handled Windows execution using Anaconda to create the virtual environment.
+1. Open Anaconda Prompt 
+2. In Anaconda Prompt, create a new development environment by running:
 
-```python ../<ProjectFolder>/<ProjectFile>.py```
+```conda create --name <VMName> python=3.14```
+
+3. In Anaconda Prompt, activate the new environment:
+```conda activate hello-env```
+
+4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your <VMName>.
+
+If the name of the environment does not appear, restart VS Code. It should display <VMName> in the bottom-right now.
+
+To check if you're in the env, the cmdl should look like:
+```(<VMName>) C:\Users\<YourName>>```
+
+5. For general installs, use cmdl:
+```pip install <library>```
+For conda installs:
+```conda install --channel conda-forge <library1> <library2>```
+
+
+6. At the end of your development, shut down the environment. In Anaconda Prompt, deactivate the new environment:
+```conda deactivate```
