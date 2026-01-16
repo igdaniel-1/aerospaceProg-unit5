@@ -137,16 +137,11 @@ fig2 = Figure(figsize = (6, 3), dpi = 100)
 canvas2 = FigureCanvasTkAgg(fig2, master = left_frame) 
 
 # This method takes the six Keplarian Elements and plots them in a 3D graph
-def visualize_3d_orbit(a, p, e, o, i, w, figure):
-    orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
+def visualize_3d_orbit(a, v, e, o, i, w, figure):
+    orbit = pyasl.KeplerEllipse(a=a, per=v, e=e, Omega=o, i=i, w=w)
     timespace = np.linspace(0, 4, 300)
     pos = orbit.xyzPos(timespace)
-
-    # model = kem.evaluate(timespace)
-
-    print("Used " + str(len(timespace)) + " time points")
     
-
     # Clear the figure if it already exists (allows us to refresh / redraw updated plots)
     if figure:
         figure.clear()
@@ -162,7 +157,28 @@ def visualize_3d_orbit(a, p, e, o, i, w, figure):
     # Draws the plot onto the canvas
     canvas2.draw() 
 
-print(visualize_3d_orbit(1.0, 1.0, 0.5, 0.0, 30.0, 0.0, fig2))
+# default visualization on load
+visualize_3d_orbit(1.0, 1.0, 0.5, 0.0, 30.0, 0.0, fig2)
+
+
+# function to generate new orbital graph on click of 'retrace orbit' button
+def retraceOrbit():
+
+    a_val = semi_major_axis_slider.get()
+    v_val = anomaly_slider.get()
+    e_val = eccentricity_slider.get()
+    o_val = raan_slider.get()
+    i_val = inclination_slider.get()
+    w_val = perigee_slider.get()
+
+    # if figure:
+    #     figure.clear()
+    visualize_3d_orbit(a_val, v_val, e_val, o_val, i_val, w_val, fig2)
+
+
+# create button to graph orbit on submission of new input
+retraceOrbitButton = ttk.Button(right_frame, text="Retrace Orbit", style='TButton', command=retraceOrbit)
+retraceOrbitButton.pack()
 
 
 mainFrame.mainloop()
