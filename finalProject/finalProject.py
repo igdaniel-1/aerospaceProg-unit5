@@ -180,5 +180,41 @@ def retraceOrbit():
 retraceOrbitButton = ttk.Button(right_frame, text="Retrace Orbit", style='TButton', command=retraceOrbit)
 retraceOrbitButton.pack()
 
+def convertToCSV(a, v, e, o, i, w):
+
+    csvFormattedData = [
+        {
+            "semi_major_axis":a,
+            "anomaly_slider":v,
+            "eccentricity_slider":e,
+            "raan_slider":o,
+            "inclination_slider":i,
+            "perigee_slider":w,
+        }
+    ]
+
+    return csvFormattedData
+
+def downloadAsCSV():
+    # get the slider values
+    a_val = semi_major_axis_slider.get()
+    v_val = anomaly_slider.get()
+    e_val = eccentricity_slider.get()
+    o_val = raan_slider.get()
+    i_val = inclination_slider.get()
+    w_val = perigee_slider.get()
+
+    # convert to csv
+    csvFormattedData = convertToCSV(a_val, v_val, e_val, o_val, i_val, w_val)
+
+    # write as csv
+    with open('finalProject/data.csv', 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=csvFormattedData[0].keys())
+        writer.writeheader()
+        writer.writerows(csvFormattedData)
+
+
+downloadButton = ttk.Button(right_frame, text="Download as CSV", style='TButton', command=downloadAsCSV)
+downloadButton.pack()
 
 mainFrame.mainloop()
