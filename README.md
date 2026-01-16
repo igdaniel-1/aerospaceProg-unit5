@@ -44,9 +44,9 @@ current name: keplerVM
 3. In Anaconda Prompt, activate the new environment:
 ```conda activate <VMName>```
 
-4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your <VMName>.
+4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your 'VMName'.
 
-If the name of the environment does not appear, restart VS Code. It should display <VMName> in the bottom-right now.
+If the name of the environment does not appear, restart VS Code. It should display 'VMName' in the bottom-right now.
 
 To check if you're in the env, the cmdl should look like:
 ```(<VMName>) C:\Users\<YourName>>```

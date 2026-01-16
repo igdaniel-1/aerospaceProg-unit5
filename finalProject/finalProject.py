@@ -138,43 +138,29 @@ canvas2 = FigureCanvasTkAgg(fig2, master = left_frame)
 
 # This method takes the six Keplarian Elements and plots them in a 3D graph
 def visualize_3d_orbit(a, p, e, o, i, w, figure):
-    # orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
-    
-    # kem = KeplerEllipseModel(relevantAxes="xz")
-    # kem = KeplerEllipseModel()
-    # kem["a"] = a
-    # kem["per"] = p
-    # kem["e"] = e
-    # # kem["tau"] = TAU
-    # kem["Omega"] = o
-    # kem["w"] = w
-    # kem["i"] = i
-
-
-    # kem["tau"] = 0.745
-    
+    orbit = pyasl.KeplerEllipse(a=a, per=p, e=e, Omega=o, i=i, w=w)
     timespace = np.linspace(0, 4, 300)
-    # pos = orbit.xyzPos(timespace)
+    pos = orbit.xyzPos(timespace)
 
     # model = kem.evaluate(timespace)
 
-    # print("Used " + str(len(timespace)) + " time points")
-    # print("-> length of model: ", len(model))
+    print("Used " + str(len(timespace)) + " time points")
+    
 
     # Clear the figure if it already exists (allows us to refresh / redraw updated plots)
-    # if fig_vis:
-    #     fig_vis.clear()
+    if figure:
+        figure.clear()
     
-    # canvas2.get_tk_widget().pack(pady=15)
-    # plot2 = fig_vis.add_subplot(111, projection='3d')
+    canvas2.get_tk_widget().pack(pady=15)
+    plot2 = figure.add_subplot(111, projection='3d')
 
     # Plots the Earth, trajectory path, and periapsis point of trajectory
-    # plot2.plot(0, 0, 'bo', markersize=9, label="Earth")
-    # plot2.plot(pos[::, 1], pos[::, 0], 'k-', label="Satellite Trajectory")
-    # plot2.plot(pos[0, 1], pos[0, 0], 'g*', label="Periapsis")
+    plot2.plot(0, 0, 'bo', markersize=9, label="Earth")
+    plot2.plot(pos[::, 1], pos[::, 0], 'k-', label="Satellite Trajectory")
+    plot2.plot(pos[0, 1], pos[0, 0], 'g*', label="Periapsis")
 
     # Draws the plot onto the canvas
-    # canvas2.draw() 
+    canvas2.draw() 
 
 print(visualize_3d_orbit(1.0, 1.0, 0.5, 0.0, 30.0, 0.0, fig2))
 
