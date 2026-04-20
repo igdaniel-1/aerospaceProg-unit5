@@ -48,6 +48,14 @@ current name: keplerVM
 
 If the name of the environment does not appear, restart VS Code. It should display 'VMName' in the bottom-right now.
 
+IF NOT: "Click into" a .py file that you intend to execute. For a tester, try question1-GUI/tkinterCalculatorGUI.py. Run the file by running:
+
+```cd /aerospaceProg-unit5/question1-GUI/```
+
+```python3 [LOCAL/PATH/TO/REPO]/aerospaceProg-unit5/question1-GUI/tkinterCalculatorGUI.py```
+
+A GUI with two form fields should appear on your display.
+
 To check if you're in the env, the cmdl should look like:
 ```(<VMName>) C:\Users\<YourName>>```
 
