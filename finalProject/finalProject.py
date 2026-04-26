@@ -47,6 +47,8 @@ right_frame = tk.Frame(mainFrame, width=300, height=600)
 right_frame.pack(side='right', fill='both', expand=True)
 
 
+
+
 # creating the 6 input sliders for the keplarian elements
 # label pack slider pack
 semi_major_axis_label = ttk.Label(right_frame, text="Semi-Major Axis: ", style='Margin.TLabel')
@@ -129,6 +131,11 @@ def trace_altitude_graph(TLE_one, TLE_two):
 # Default TLE:
 # 1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990
 # 2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.4888108230711
+
+# creating the labels for the altitude graph
+semi_major_axis_label = ttk.Label(left_frame, text="Altitude from Earth Surface (y=km/x=min): ", style='Margin.TLabel')
+semi_major_axis_label.pack()
+# display the altitude graph
 trace_altitude_graph("1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990", "2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.48881082307117")
 
 
@@ -157,6 +164,10 @@ def visualize_3d_orbit(a, v, e, o, i, w, figure):
     # Draws the plot onto the canvas
     canvas2.draw() 
 
+# creating the labels for the orbit graph
+semi_major_axis_label = ttk.Label(left_frame, text="Orbit about Earth: ", style='Margin.TLabel')
+semi_major_axis_label.pack()
+# display the altitude graph
 # default visualization on load
 visualize_3d_orbit(1.0, 1.0, 0.5, 0.0, 30.0, 0.0, fig2)
 
