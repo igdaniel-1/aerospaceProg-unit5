@@ -13,13 +13,13 @@ Matplotlib, scipy, sv_ttk, PyAstronomy, and sgp4 were installed in a virtual env
 
 ### Mac Install
 
-1. Set up the virtual environment. Within your project directory, open terminal and enter:
+1. Set up the virtual environment. To start a VM named 'keplerVM', open a terminal within your project directory and enter:
 
-```python3 -m venv <pick_VM_name>  ```
+```python3 -m venv keplerVM  ```
 
 2. Activate the environment, telling your computer to "look there" for the files.
 
-```source <pick_VM_name>/bin/activate ```
+```source keplerVM/bin/activate ```
 
 
 3. Install the dependency in the new virtual environment:
@@ -44,19 +44,19 @@ This install was giving me issues with pip so I used brew for Mac installs.
 ### Windows Install
 I handled Windows execution using Anaconda to create the virtual environment.
 1. Open Anaconda Prompt 
-2. In Anaconda Prompt, create a new development environment by running:
+2. In Anaconda Prompt, create a new development environment named 'keplerVM' by running:
 
-```conda create --name <VMName> python=3.9```
-current name: keplerVM
+```conda create --name keplerVM python=3.9```
+
 
 3. In Anaconda Prompt, activate the new environment:
-```conda activate <VMName>```
+```conda activate keplerVM```
 
-4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your 'VMName'.
+4. Open the development directory in VS Code. In the bottom-right corner of the IDE's GUI is the environment button (to the left of the little bell.) Click and change the env to your 'keplerVM'.
 
-If the name of the environment does not appear, restart VS Code. It should display 'VMName' in the bottom-right now.
+If the name of the environment does not appear, restart VS Code. It should display 'keplerVM' in the bottom-right now.
 
-IF NOT: "Click into" finalProject/finalProject.py file that you intend to execute. Run the file by running:
+IF NOT: "Click into" finalProject/finalProject.py file that you intend to execute within the VS Code IDE. Run the file by running (or by clicking Run):
 
 ```cd /aerospaceProg-unit5/finalProject/```
 
@@ -65,7 +65,7 @@ IF NOT: "Click into" finalProject/finalProject.py file that you intend to execut
 A GUI should appear on your display.
 
 To check if you're in the env, the cmdl should look like:
-```(<VMName>) C:\Users\<YourName>>```
+```(keplerVM) C:\Users\<YourName>>```
 
 5. For general installs (e.g. PyAstronomy), use cmdl:
 ```pip install <library>```
