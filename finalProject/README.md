@@ -6,6 +6,10 @@ Desktop Python simulation app to calculate and predict a satellite’s orbit usi
 ![](images/defaultDisplayKeplerGUI.png)
 
 
+## Exec file
+[finalProject/satelliteGUI.py](https://github.com/igdaniel-1/aerospaceProg-unit5/blob/main/finalProject/satelliteGUI.py)
+
+
 ## Install Instructions
 The files in this repository have dependencies including: tkinter, matplotlib, scipy, sv_ttk, PyAstronomy, sgp4.
 
@@ -60,7 +64,7 @@ IF NOT: "Click into" finalProject/finalProject.py file that you intend to execut
 
 ```cd /aerospaceProg-unit5/finalProject/```
 
-```python3 [LOCAL/PATH/TO/REPO]/aerospaceProg-unit5/finalProject/finalProject.py```
+```python3 [LOCAL/PATH/TO/REPO]/aerospaceProg-unit5/finalProject/satelliteGUI.py```
 
 A GUI should appear on your display.
 

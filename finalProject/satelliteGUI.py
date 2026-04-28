@@ -120,8 +120,14 @@ def trace_altitude_graph(TLE_one, TLE_two):
         altitudes.append(altitude)
 
     # create mpl graph
-    fig = Figure(figsize=(6,3), dpi=100)
+    fig = Figure(figsize=(6,4.5), dpi=100)
     canvas = FigureCanvasTkAgg(fig, master=left_frame)
+
+    # add figure axis labels
+    fig.supxlabel("Minutes", verticalalignment='baseline')
+    fig.supylabel("Kilometers")
+
+
     canvas.get_tk_widget().pack(pady=15)
     # graph the altitudes at each time step
     plot = fig.add_subplot()
@@ -133,7 +139,7 @@ def trace_altitude_graph(TLE_one, TLE_two):
 # 2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.4888108230711
 
 # creating the labels for the altitude graph
-semi_major_axis_label = ttk.Label(left_frame, text="Altitude from Earth Surface (y=km/x=min): ", style='Margin.TLabel')
+semi_major_axis_label = ttk.Label(left_frame, text="Altitude above Earth's Surface", style='Margin.TLabel')
 semi_major_axis_label.pack()
 # display the altitude graph
 trace_altitude_graph("1 25544U 98067A   21257.91276829  .00000825  00000-0  24323-4 0  9990", "2 25544  51.6461  89.6503 0003031 120.4862 259.0942 15.48881082307117")
