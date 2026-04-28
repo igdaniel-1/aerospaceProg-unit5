@@ -167,6 +167,8 @@ def visualize_3d_orbit(a, v, e, o, i, w, figure):
     plot2.plot(pos[::, 1], pos[::, 0], 'k-', label="Satellite Trajectory")
     plot2.plot(pos[0, 1], pos[0, 0], 'g*', label="Periapsis")
 
+    plot2.legend(["Earth", "Satellite Path", "Satellite"], loc="lower right")
+
     # Draws the plot onto the canvas
     canvas2.draw() 
 
